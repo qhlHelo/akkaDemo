@@ -4,14 +4,15 @@ import akka.actor.{Actor, ActorLogging}
 import akka.event.Logging
 import studentTeacher.TeacherProtocol._
 
-class TeacherActor extends Actor with ActorLogging{
+class TeacherActor extends Actor{
 	
-	override val log = Logging.getLogger(context.system,this)
+//	override val log = Logging.getLogger(context.system,this)
 	
 	val quotes = List(
-		"语文需要理解文章含义",
-		"数学需要头脑灵活",
-		"英语需要勤学多练"
+		"Moderation is for cowards",
+		"Anything worth doing is worth overdoing",
+		"The trouble is you think you have time",
+		"You never gonna know if you never even try"
 	)
 	
 	def receive: Receive = {
@@ -19,7 +20,7 @@ class TeacherActor extends Actor with ActorLogging{
 			import util.Random
 			// 从List获取一个随机的quote，并构造一个QuoteResponse
 			val quoteResponse = QuoteResponse(quotes(Random.nextInt(quotes.size)))
-			log.info(quoteResponse.toString)
+			println(quoteResponse.toString)
 		}
 	}
 }

@@ -7,7 +7,7 @@ object StudentSimulatorApp extends App {
 	// 初始化ActorSystem
 	val actorSystem = ActorSystem("UniversityMessageSystem")
 	// 创建Teacher Actor Ref
-	val teacherRef = actorSystem.actorOf(Props[TeacherActor])
+	val teacherRef = actorSystem.actorOf(Props[TeacherLogActor])
 	// 发送消息给TeacherActor
 	teacherRef ! QuoteRequest
 	// 等待2s

@@ -1,22 +1,29 @@
 
 import akka.actor.ActorSystem
-import akka.testkit.{ImplicitSender, TestActors, TestKit}
+import akka.testkit.{TestActorRef, TestActors, TestKit}
 import org.scalatest.{BeforeAndAfterAll, Matchers, WordSpecLike}
+import studentTeacher.TeacherLogActor
 
-class TeacherPreTest extends TestKit(ActorSystem("TeacherPreTest")) with ImplicitSender
-	with WordSpecLike with Matchers with BeforeAndAfterAll {
+class TeacherPreTest extends TestKit(ActorSystem("UniversityMessageSystem"))
+	//	with ImplicitSender
+	with WordSpecLike
+	with Matchers
+	with BeforeAndAfterAll {
 	
 	override def afterAll: Unit = {
 		TestKit.shutdownActorSystem(system)
 	}
 	
-	"An Echo actor" must {
+	"A teacher with ActorLogging" must {
 		
-		"send back messages unchanged" in {
-			val echo = system.actorOf(TestActors.echoActorProps)
-			echo ! "hello world"
+		"log a quote when a QuoteRequest message is sent" in {
+			
+			val teacherRef = TestActorRef[TeacherLogActor]
+			
+			teacherRef ! "hello world"
+			
+			// 断言收到消息
 			expectMsg("hello world")
 		}
-		
 	}
 }
