@@ -1,0 +1,36 @@
+<configuration>
+    <!--ERROR与其他日志分开-->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>DENY</onMatch>
+            <onMismatch>ACCEPT</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>
+                <pattern>CONSOLE -- [%-5level] %d{HH:mm:ss} - %msg%n</pattern>
+            </pattern>
+        </encoder>
+    </appender>
+
+    <!--ERROR与其他日志分开-->
+    <appender name="ERROR" class="ch.qos.logback.core.ConsoleAppender">
+        <target>System.err</target>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <encoder>
+            <pattern>
+                <pattern>ERROR -- [%-5level] %d{HH:mm:ss} - %msg%n</pattern>
+            </pattern>
+        </encoder>
+    </appender>
+
+
+    <root level="DEBUG">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="ERROR" />
+    </root>
+</configuration>
