@@ -4,16 +4,15 @@ import akka.actor.{Actor, ActorLogging}
 import akka.event.Logging
 import studentTeacher.TeacherProtocol._
 
+/**
+  * Log Actor
+  * @param quotes
+  */
 class TeacherLogActor(quotes: List[String]) extends Actor with ActorLogging {
 	
 	override val log = Logging.getLogger(context.system, this)
 	
 	lazy val _quotes = quotes
-	//		List(
-	//		"语文需要理解文章含义",
-	//		"数学需要头脑灵活",
-	//		"英语需要勤学多练"
-	//	)
 	
 	def receive: Receive = {
 		

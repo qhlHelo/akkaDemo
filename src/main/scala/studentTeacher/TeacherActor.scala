@@ -1,13 +1,13 @@
 package studentTeacher
 
-import akka.actor.{Actor, ActorLogging}
-import akka.event.Logging
+import akka.actor.Actor
 import studentTeacher.TeacherProtocol._
 
+/**
+  * print Actor
+  */
 class TeacherActor extends Actor{
-	
-//	override val log = Logging.getLogger(context.system,this)
-	
+
 	val quotes = List(
 		"Moderation is for cowards",
 		"Anything worth doing is worth overdoing",
