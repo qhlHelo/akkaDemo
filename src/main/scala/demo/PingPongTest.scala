@@ -18,9 +18,9 @@ class Pinger extends Actor {
 			
 			if (countDown > 0) {
 				countDown -= 1
-				sender() ! Ping
+				sender ! Ping
 			} else {
-				sender() ! PoisonPill
+				sender ! PoisonPill
 				self ! PoisonPill
 			}
 	}
