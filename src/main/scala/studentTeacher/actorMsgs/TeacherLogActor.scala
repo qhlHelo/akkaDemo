@@ -1,8 +1,8 @@
-package studentTeacher
+package studentTeacher.actorMsgs
 
 import akka.actor.{Actor, ActorLogging}
 import akka.event.Logging
-import studentTeacher.TeacherProtocol._
+import studentTeacher.protocols.TeacherProtocol._
 
 /**
   * Log Actor
@@ -25,4 +25,6 @@ class TeacherLogActor(quotes: List[String]) extends Actor with ActorLogging {
 			log.info(quoteResponse.toString)
 		}
 	}
+	
+	def quoteList=quotes
 }

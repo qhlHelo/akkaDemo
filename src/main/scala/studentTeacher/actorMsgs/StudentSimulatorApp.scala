@@ -1,7 +1,7 @@
-package studentTeacher
+package studentTeacher.actorMsgs
 
 import akka.actor.{ActorSystem, Props}
-import studentTeacher.TeacherProtocol.QuoteRequest
+import studentTeacher.protocols.TeacherProtocol.QuoteRequest
 
 object StudentSimulatorApp extends App {
 	// 初始化ActorSystem

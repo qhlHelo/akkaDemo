@@ -1,7 +1,7 @@
-package studentTeacher
+package studentTeacher.actorMsgs
 
 import akka.actor.Actor
-import studentTeacher.TeacherProtocol._
+import studentTeacher.protocols.TeacherProtocol._
 
 /**
   * print Actor
