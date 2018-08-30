@@ -8,8 +8,8 @@ class StudentActor(teacherActorRef: ActorRef) extends Actor with ActorLogging {
 	def receive: Receive = {
 		/*
 		 * 此初始信号接收自DriverApp
-		 * 接收后，Student会发送信息给TeacherActor.
-		 * TeacherActor接收到QuoteRequest后会通过QuoteResponse予以相应
+		 * 接收后，Student会发送信息给TeacherActor
+		 * TeacherActor接收到QuoteRequest后会通过QuoteResponse予以响应
 		 */
 		case InitSignal => {
 			teacherActorRef ! QuoteRequest
@@ -20,8 +20,8 @@ class StudentActor(teacherActorRef: ActorRef) extends Actor with ActorLogging {
 		 *
 		 */
 		case QuoteResponse(quoteString) => {
-			log.info("Received QuoteResponse from Teacher")
-			log.info(s"Printing from Student Actor $quoteString")
+			log.info("接收到来自Teacher的QuoteResponse")
+			log.info(s"打印Student接收到的Quote字符串：$quoteString")
 		}
 	}
 }

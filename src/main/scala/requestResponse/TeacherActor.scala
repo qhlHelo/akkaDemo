@@ -19,7 +19,7 @@ class TeacherActor extends Actor with ActorLogging {
 			//Get a random Quote from the list and construct a response
 			val quoteResponse = QuoteResponse(quotes(Random.nextInt(quotes.size)))
 			
-			log.info("QuoteRequest received. Sending response to Student")
+			log.info("接收到QuoteRequest，发送response给Student")
 			
 			//respond back to the Student who is the original sender of QuoteRequest
 			sender ! quoteResponse

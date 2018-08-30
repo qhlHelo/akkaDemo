@@ -8,7 +8,8 @@
         </filter>
         <encoder>
             <pattern>
-                <pattern>CONSOLE -- [%-5level] %d{HH:mm:ss} - %msg%n</pattern>
+                <!--<pattern>CONSOLE &#45;&#45; [%-5level] %d{HH:mm:ss} - %msg%n</pattern>-->
+                <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %red([%-5level]) %yellow(%logger{50}) - %highlight(%msg%n)</pattern>
             </pattern>
         </encoder>
     </appender>
