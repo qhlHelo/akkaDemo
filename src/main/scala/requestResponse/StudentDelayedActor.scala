@@ -13,12 +13,19 @@ class StudentDelayedActor(teacherActorRef: ActorRef) extends Actor with ActorLog
 	def receive = {
 		
 		/*
-		 * This InitSignal is received from the DriverApp.
-		 * On receipt and after 5 seconds, the Student sends a message to the Teacher actor.
-		 * The teacher actor on receipt of the QuoteRequest responds with a QuoteResponse
+		 * 接收来自DriverApp初始信号
+		 * 接收到信号5秒后,StudentActor发送一条消息给TeacherActor
+		 * TeacherActor在接收到QuoteRequest后给予QuoteResponse响应
 		 */
 		case InitSignal => {
 			import context.dispatcher
+			/*
+			 * 接收4个参数：
+			 * 1、在第一次运行的时候需要等待多少时间；
+			 * 2、频率；
+			 * 3、发送消息的目标ActorRef ；
+			 * 4、消息
+			 */
 			context.system.scheduler.schedule(Duration.Zero, Duration(5, TimeUnit.SECONDS), teacherActorRef, QuoteRequest)
 			// teacherActorRef ! QuoteRequest
 		}
