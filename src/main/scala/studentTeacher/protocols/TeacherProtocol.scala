@@ -3,14 +3,13 @@ package studentTeacher.protocols
 object TeacherProtocol {
 	
 	/*
-	 * Student发送消息用以请求Quotation
+	 * StudentActor用来给TeacherActor发送消息
 	 *
 	 */
 	case class QuoteRequest()
 	
 	/*
-	 * TeacherActor以此消息对象返回给Student
-	 * 实际的quote字符串在此response被覆盖
+	 * TeacherActor以此消息对象响应Student
 	 *
 	 */
 	case class QuoteResponse(quoteString: String)
