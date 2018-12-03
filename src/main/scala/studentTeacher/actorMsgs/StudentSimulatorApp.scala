@@ -3,7 +3,7 @@ package studentTeacher.actorMsgs
 import akka.actor.{ActorSystem, Props}
 import studentTeacher.protocols.TeacherProtocol.QuoteRequest
 
-import akka.pattern.ask
+//import akka.pattern.ask
 
 
 object StudentSimulatorApp extends App {
@@ -13,7 +13,7 @@ object StudentSimulatorApp extends App {
 	val teacherRef = actorSystem.actorOf(Props[TeacherActor])
 	// 发送消息给TeacherActor
 	teacherRef ! QuoteRequest
-	teacherRef ? "hello"
+//	teacherRef ? "hello"
 	// 等待2s
 	Thread.sleep(2000)
 	// 关闭ActorSystem
